@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Template</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="style.css" media="all" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/knockout/dist/knockout.js"></script>
+    <script type="text/javascript" src="../bower_components/sammy/lib/min/sammy-latest.min.js"></script>
+    <script type="text/javascript" src="application.js"></script>
+</head>
+
+<body>
+<div class="col-md-6 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">Template</div>
+        <div class="panel-body">
+            <ul class="folders" data-bind="foreach: folders">
+                <li data-bind="text: $data, css: { selected: $data == $root.chosenFolderId() },
+               click: $root.goToFolder"></li>
+            </ul>
+
+            <!-- Mails grid -->
+            <table class="table mails" data-bind="with: chosenFolderData">
+                <thead>
+                <tr>
+                    <th>From</th>
+                    <th>To</th>
+                    <th>Subject</th>
+                    <th>Date</th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: mails">
+                <tr data-bind="click: $root.goToMail">
+                    <td data-bind="text: from"></td>
+                    <td data-bind="text: to"></td>
+                    <td data-bind="text: subject"></td>
+                    <td data-bind="text: date"></td>
+                </tr>
+                </tbody>
+            </table>
+
+            <!-- Chosen mail -->
+            <div class="viewMail" data-bind="with: chosenMailData">
+                <div class="mailInfo">
+                    <h1 data-bind="text: subject"></h1>
+
+                    <p><label>From</label>: <span data-bind="text: from"></span></p>
+
+                    <p><label>To</label>: <span data-bind="text: to"></span></p>
+
+                    <p><label>Date</label>: <span data-bind="text: date"></span></p>
+                </div>
+                <p class="message" data-bind="html: messageContent"/>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
