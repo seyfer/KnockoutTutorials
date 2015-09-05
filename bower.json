@@ -1,0 +1,12 @@
+{
+  "name": "knockout learn",
+  "description": "A starter project for knockout learn",
+  "version": "0.0.0",
+  "homepage": "https://github.com/knockout",
+  "license": "MIT",
+  "private": true,
+  "dependencies": {
+    "knockout": "^3.*",
+    "jquery" : "1.10.*"
+  }
+}
