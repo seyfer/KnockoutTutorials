@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Lists And Collections</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="style.css" media="all" rel="stylesheet" type="text/css"/>
+    <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/knockout/dist/knockout.js"></script>
+    <script type="text/javascript" src="application.js"></script>
+</head>
+
+<body>
+<div class="col-md-5 col-md-offset-3">
+    <div class="panel panel-default">
+        <div class="panel-heading">Lists And Collections</div>
+        <div class="panel-body">
+            <h2>Your seat reservations (<span data-bind="text: seats().length"></span>)</h2>
+            <button class="btn btn-warning"
+                    data-bind="click: addSeat, enable: seats().length < 5">Reserve another seat
+            </button>
+            <table class="table">
+                <thead>
+                <tr>
+                    <th>Passenger name</th>
+                    <th>Meal</th>
+                    <th>Surcharge</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach: seats">
+                <tr>
+                    <td><input class="form-control" data-bind="value: name"/></td>
+                    <td>
+                        <select class="form-control"
+                                data-bind="options: $root.availableMeals, value: meal, optionsText: 'mealName'"></select>
+                    </td>
+                    <td data-bind="text: formattedPrice"></td>
+                    <td>
+                        <a href="#" class="btn btn-danger" data-bind="click: $root.removeSeat">Remove</a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+
+            <h3 data-bind="visible: totalSurcharge() > 0">
+                Total surcharge: $<span data-bind="text: totalSurcharge().toFixed(2)"></span>
+            </h3>
+
+
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
