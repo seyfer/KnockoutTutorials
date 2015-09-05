@@ -83,11 +83,6 @@ $(function () {
     function SurveyViewModel(question, pointsBudget, answers) {
 
         var self = this;
-        this.getPoints = function () {
-            var num = $('#choices').data("num");
-
-            return num;
-        };
 
         this.question = question;
         this.pointsBudget = pointsBudget;
@@ -105,17 +100,6 @@ $(function () {
                 total += this.answers[i].points().point;
             return total;
         }, this);
-
-
-        this.setPoints = function (num) {
-            console.log(num);
-
-            this.num = num ? num : this.num;
-            this.answers = $.map(answers, function (text) {
-                return new Answer(text, {point: 1, num: this.num})
-            });
-        };
-
     }
 
     ko.applyBindings(new SurveyViewModel("Which factors affect your technology choices?", 10, [
