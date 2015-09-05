@@ -1,14 +1,38 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title></title>
-    <link href="style.css" media="all" rel="stylesheet" type="text/css" />
+    <title>Introduction</title>
+    <link href="../bower_components/bootstrap/dist/css/bootstrap.min.css" media="all" rel="stylesheet" type="text/css"/>
+    <link href="style.css" media="all" rel="stylesheet" type="text/css"/>
     <script type="text/javascript" src="../bower_components/jquery/jquery.min.js"></script>
-    <script type="text/javascript" src="../bower_components/knockout/dist/knockout.js" ></script>
+    <script type="text/javascript" src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../bower_components/knockout/dist/knockout.js"></script>
     <script type="text/javascript" src="application.js"></script>
 </head>
 
 <body>
+<div class="row">
+
+    <div class="col-md-6 col-md-offset-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Introduction</div>
+            <div class="panel-body">
+                <p>First name: <strong data-bind="text: firstName"></strong></p>
+
+                <p>Last name: <strong data-bind="text: lastName"></strong></p>
+
+                <p>Full name: <strong data-bind="text: fullName"></strong></p>
+
+                <p>First name: <input class="form-control" data-bind="value: firstName"/></p>
+
+                <p>Last name: <input class="form-control" data-bind="value: lastName"/></p>
+
+                <button class="btn btn-default" data-bind="click: capitalizeLastName">Go caps</button>
+            </div>
+        </div>
+    </div>
+
+</div>
 
 </body>
 
